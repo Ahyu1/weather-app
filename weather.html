@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="left-title">
+        <h1 class="title">天気の子 アプリ</h1>
+        <p id="trans" onclick="trans()">translate</p>
+    </div>
+    <div class="left-con">
+        <img id="hodaka" src="https://static.wikia.nocookie.net/tenkinoko1663/images/3/39/Hodaka_Morishima_Profile.png/revision/latest?cb=20190627080359">
+    </div>
+    <div class="popUp-sources">
+        <div class="popUp-upper">
+            <h3>Sources From:</h3>
+            <button id="closePopUp" onclick="closePopup()">close</button>
+        </div>
+        <p><span class="sourcesText">API</span> - <a href="https://www.weatherapi.com/">weather api</a></p>
+        <p><span class="sourcesText">Interface Icons</span> - <a href="https://www.flaticon.com/">Flaticon</a></p>
+        <p><span class="sourcesText">Hodaka PNG</span> - <a href="https://weatheringwithyou.fandom.com/wiki/Hodaka_Morishima/Image_Gallery">WWY wiki</a></p>
+        <p><span class="sourcesText">Background</span> - Pinterest</p>
+        <p class="creator"><span class="creatorStyle">Developer: AHYU</span></p>
+    </div>
+    <div class="wrapper">
+        <div class="right-container">
+            <div class="container-items">
+                <p id="time"></p>
+                <h5 id="cityName"></h5>
+                <hr>
+                <img id="icon" src="">
+                <h2 id="celcius"></h2>
+                <p id="condition-text"></p>
+            </div>
+            <div class="lat-long">
+                <div>
+                    <div style="display:flex; align-items: center; column-gap: 5px;">
+                        <img class="latImg" src="equator.png">
+                        <p id="lat"></p>
+                    </div>
+                    <div style="display:flex; align-items: center; column-gap: 5px;">
+                        <img class="longImg" src="longitude (1).png">
+                        <p id="long"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="sevendays-forecast">
+                <h3>3 DAYS FORECAST</h3>
+                <div class="first-day">
+                    <div class="firstDay-left-con">
+                        <h3 id="daydate"></h3>
+                        <img id="forecastIcon" src="">
+                    </div>
+                    <div class="firstDay-right-con">
+                        <div>
+                            <p id="forecastText"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature"></p>
+                            <p id="rain"></p>
+                            <p id="snow"></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="second-day">
+                    <div class="secondDay-left-con">
+                        <h3 id="daydate2"></h3>
+                        <img id="forecastIcon2" src="">
+                    </div>
+                    <div class="secondDay-right-con">
+                        <div>
+                            <p id="forecastText2"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature2"></p>
+                            <p id="rain2"></p>
+                            <p id="snow2"></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="third-day">
+                    <div class="thirdDay-left-con">
+                        <h3 id="daydate3"></h3>
+                        <img id="forecastIcon3" src="">
+                    </div>
+                    <div class="thirdDay-right-con">
+                        <div>
+                            <p id="forecastText3"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature3"></p>
+                            <p id="rain3"></p>
+                            <p id="snow3"></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="fourth-day">
+                    <div class="fourthDay-left-con">
+                        <h3 id="daydate4"></h3>
+                        <img id="forecastIcon4" src="">
+                    </div>
+                    <div class="fourthDay-right-con">
+                        <div>
+                            <p id="forecastText4"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature4"></p>
+                            <p id="rain4"></p>
+                            <p id="snow4"></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="fifth-day">
+                    <div class="fifthDay-left-con">
+                        <h3 id="daydate5"></h3>
+                        <img id="forecastIcon3" src="">
+                    </div>
+                    <div class="fifthDay-right-con">
+                        <div>
+                            <p id="forecastText5"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature5"></p>
+                            <p id="rain5"></p>
+                            <p id="snow5"></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="sixth-day">
+                    <div class="sixthDay-left-con">
+                        <h3 id="daydate6"></h3>
+                        <img id="forecastIcon6" src="">
+                    </div>
+                    <div class="sixthDay-right-con">
+                        <div>
+                            <p id="forecastText6"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature6"></p>
+                            <p id="rain6"></p>
+                            <p id="snow6"></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="seveth-day">
+                    <div class="seventhDay-left-con">
+                        <h3 id="daydate7"></h3>
+                        <img id="forecastIcon7" src="">
+                    </div>
+                    <div class="seventhDay-right-con">
+                        <div>
+                            <p id="forecastText7"></p>
+                        </div>
+                        <div class="details-below">
+                            <p id="averageTemperature7"></p>
+                            <p id="rain7"></p>
+                            <p id="snow7"></p>
+                        </div>     
+                                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="astro-ui-con">
+        <div class="astronomy-container">
+            <p class="astronomyTextTitle">ASTRONOMY</p>
+            <div class="astro-wrapper">
+                <div class="moon">
+                    <div class="moonUpper">
+                        <div class="phase-con">
+                            <p id="moonPhase"></p>
+                        </div>
+                        <div class="img-con">
+                            <img id="moonImg" src="moon (1).png">
+                        </div>
+                        <div class="rise-set-con">
+                            <p id="moonRise"></p>
+                            <hr style="border-top: 1px dotted #fff; border-left: none; border-right: none ">
+                            <p id="moonSet"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="moon-illumination-con">
+                            <p>Moon Illumination:</p>
+                            <h5 id="moonIllu"></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="sun">
+                    <div>
+                        <img id="sunPhoto" src="sun.png">
+                    </div>
+                    <div class="sun-rs-con">
+                        <p class="srText">sunrise: <span id="sunRise"></p>
+                        <div class="hrS">
+                            <hr style="border: 1px solid yellow; width: 70px;">
+                            <hr style="border: 1px solid yellow; width: 60px;">
+                            <hr style="border: 1px solid yellow; width: 50px;">
+                            <hr style="border: 1px solid yellow; width: 40px;">
+                            <hr style="border: 1px solid yellow; width: 30px;">
+                        </div>
+                        
+                        <p class="ssText">sunset: <span id="sunSet"></p>
+                    </div>
+                </div>
+                <div class="third-con">
+                    <h2>MORE WEATHER FORECAST</h2>
+                    <p>@Clear Outside WebPage</p>
+                </div>
+            </div>
+            <p class="astronomyTextTitle">TODAY'S HIGHLIGHT</p>
+            <div class="second-row">
+                <div class="wind-con">
+                    <div class="wind-left-div">
+                        <h5>Wind</h5>
+                        <h3 id="wind"></h3>
+                    </div>
+                    <div class="wind-right-div">
+                        <div>
+                            <img class="windImg" src="wind.png">
+                        </div>
+                        <div class="wind-stats">
+                            <p id="wmph"></p>
+                            <p id="wkph"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="precip-con">
+                    <div class="precip-left-con">
+                        <h5>PRECIPITATION</h5>
+                        <h3 id="precip"></h3>
+                    </div>
+                    <div class="precip-right-con">
+                        <img src="precipitation.png">
+                        <p id="pInch"></p>
+                    </div>
+                </div>
+                <div class="humidity-con">
+                    <div class="humid-left-con">
+                        <h5>HUMIDITY</h5>
+                        <h3 id="humid"></h3>
+                    </div>
+                    <div class="humid-right-con">
+                        <img src="drop.png">
+                        <p id="humidText"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="third-row">
+                <div class="cloud-con">
+                    <div class="cloud-left-con">
+                        <h5>cloud</h5>
+                        <h3 id="cloud"></h3>
+                    </div>
+                    <div class="cloud-right-con">
+                        <img class="cloudImg" src="cloud-computing (1).png">
+                    </div>
+                </div>
+                <div class="feelslike-con">
+                    <div class="fl-left-con">
+                        <h5>FEELSLIKE</h5>
+                        <h3 id="fl"></h3>
+                    </div>
+                    <div class="fl-right-con">
+                        <img src="temperature.png">
+                        <p id="fl-F"></p>
+                    </div>
+                </div>
+                <div class="uv-con">
+                    <div class="uv-left-con">
+                        <h5>UV</h5>
+                        <h3 id="uv"></h3>
+                    </div>
+                    <div class="uv-right-con">
+                        <img src="sun-glasses.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="userInteract-container">
+            <div class="left-UI-con">
+                <div>
+                    <input id="input" type="text" placeholder="Enter City or Place">
+                </div>
+                <div>
+                    <p id="locMarker"><img id="loc" src="marker.png"><span id=tz></span></p>
+                    <p id="calclock"><img id="cal" src="calendar.png"><span id="loctime"></span></p>
+                </div>
+            </div>
+            <div class="right-UI-con">
+                <div>
+                    <img id="searchStatus" src=""></img>
+                </div>
+                <div class="dev-source-con">
+                    <button class="developer" onclick="openPopup()">View Sources</button>
+                    <p id="sources">@2023 All rights reserved</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+<script src="weather.js"></script>
+</body>
+</html>
