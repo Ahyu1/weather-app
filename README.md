@@ -2,7 +2,7 @@
 
 -----------------------------------------------------------------------------------------------------------------
 
-[A web page that designed for viewing the current weather condition in a specific location around the globe.]
+[A web page that was designed for viewing the current weather condition in a specific location around the globe.]
 
 -----------------------------------------------------------------------------------------------------------------
 
